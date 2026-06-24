@@ -2,17 +2,29 @@
 
 @theme {
   /* Stella's Kitchen Core Palette */
-  --color-brand-red: #E53E3E;
+  --color-brand-red: #EF2F2F;        /* Your chosen bright shiny red */
+  --color-brand-red-hover: #CC1F1F;  /* Perfect matching rich hover red */
   --color-brand-brown: #6F4E37;
   --color-brand-white: #FFFFFF;
   --color-brand-cream: #FDF8F3;
 
-  /* Claude Fallback Mappings (This fixes the white footer/text mismatches!) */
-  --color-red-500: #E53E3E;
-  --color-red-600: #C53030;
+  /* Global Fallbacks - Overwriting these forces ALL standard components to use your red */
+  --color-red-500: #EF2F2F;          /* Maps standard bg-red-500 or text-red-500 */
+  --color-red-600: #CC1F1F;          /* Maps standard bg-red-600 or text-red-600 */
+  --color-red-700: #A81515;          /* Maps standard bg-red-700 or text-red-700 */
   
-  --color-brown-500: #6F4E37;
-  --color-brown-600: #5A3E2B;
+/* ─── Fully Expanded Brown Scale (Tuned around your #6F4E37) ─── */
+  --color-brown-50: #FAF6F0;         /* Soft warm ivory background */
+  --color-brown-100: #F3EAE2;        /* Gentle latte powder tint */
+  --color-brown-200: #E6D4C5;        /* Light milk chocolate */
+  --color-brown-300: #D3B9A6;        /* Smooth tan sand */
+  --color-brown-400: #B7937A;        /* Muted clay */
+  --color-brown-500: #6F4E37;        /* YOUR ORIGINAL CORE BROWN */
+  --color-brown-600: #5A3E2B;        /* Darker brown for contrast/borders */
+  --color-brown-700: #493121;        /* Deep cocoa roast */
+  --color-brown-800: #382519;        /* Rich dark chocolate */
+  --color-brown-900: #291A11;        /* Dark espresso — PERFECT for your footer background */
+  --color-brown-950: #190F0A;        /* Near-black earthy midnight shadow */
   
   /* Layout Colors */
   --color-text-main: #4a4a4a;
@@ -34,7 +46,7 @@ body {
 
 /* ─── Custom Component Utilities ────────────────────────────────────────── */
 @utility btn-primary {
-  @apply inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white font-semibold rounded-full shadow-lg hover:bg-red-700 active:scale-95 transition-all duration-200;
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white font-semibold rounded-full shadow-lg hover:bg-brand-red-hover active:scale-95 transition-all duration-200;
 }
 
 @utility btn-secondary {

@@ -20,6 +20,8 @@ const ICON_MAP = {
 const FEATURED = MENU_ITEMS.filter((m) => m.popular).slice(0, 4);
 
 export default function Home() {
+  const year = new Date().getFullYear();
+
   return (
     <>
       <Helmet>
@@ -42,14 +44,14 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block section-eyebrow text-red-300 mb-4 animate-fade-in">
+          <span className="inline-block section-eyebrow text-brand-red mb-4 animate-fade-in">
             {HOME_HERO.eyebrow}
           </span>
 
           <h1 className="font-display font-black text-white text-5xl sm:text-6xl md:text-7xl
                          lg:text-8xl leading-none mb-6 animate-fade-up">
             {HOME_HERO.headline.map((line, i) => (
-              <span key={i} className={`block ${i === 1 ? "text-red-400" : ""}`}>
+              <span key={i} className={`block ${i === 1 ? "text-brand-red" : ""}`}>
                 {line}
               </span>
             ))}
@@ -61,7 +63,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up"
-               style={{ animationDelay: "0.3s" }}>
+            style={{ animationDelay: "0.3s" }}>
             <Link to="/menu" className="btn-primary text-base px-8 py-4">
               {HOME_HERO.ctaPrimary}
               <ArrowForwardIcon fontSize="small" />
@@ -126,19 +128,22 @@ export default function Home() {
       </section>
 
       {/* ── Features strip ───────────────────────────────────────────────── */}
-      <section className="py-16 bg-white border-y border-gray-100">
+      <section className="py-20 bg-brown-500 border-y border-brown-600/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {HOME_FEATURES.map((feat, i) => {
               const Icon = ICON_MAP[feat.icon] || LocalFireDepartmentIcon;
               return (
                 <ScrollReveal key={i} delay={i * 100}>
                   <div className="flex flex-col items-center text-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center">
-                      <Icon className="text-red-500" fontSize="medium" />
+                    {/* Soft, warm cream background instead of harsh white */}
+                    <div className="w-14 h-14 rounded-2xl bg-brand-cream/90 flex items-center justify-center shadow-inner">
+                      <Icon className="text-brand-red" fontSize="medium" />
                     </div>
-                    <h3 className="font-display font-bold text-lg text-gray-900">{feat.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{feat.body}</p>
+                    {/* Warm bone-white heading */}
+                    <h3 className="font-display font-bold text-xl text-orange-50/95">{feat.title}</h3>
+                    {/* Muted, warm almond/sand text that is easy to read but calm */}
+                    <p className="text-orange-100/75 text-sm leading-relaxed max-w-sm">{feat.body}</p>
                   </div>
                 </ScrollReveal>
               );
@@ -174,12 +179,12 @@ export default function Home() {
                       {item.name}
                     </span>
                     {item.spicy && (
-                      <span className="absolute top-3 right-3 bg-red-500 text-white text-xs
+                      <span className="absolute top-3 right-3 bg-brand-red text-white text-xs
                                        px-2 py-0.5 rounded-full font-semibold">🌶 Spicy</span>
                     )}
                   </div>
                   <div className="p-4 flex items-center justify-between">
-                    <span className="font-bold text-red-500">GHS {item.price}</span>
+                    <span className="font-bold text-brand-red">GHS {item.price}</span>
                     <span className="text-xs text-gray-400 font-medium">{item.category}</span>
                   </div>
                 </Link>

@@ -2,7 +2,7 @@
 
 export const NAV_LINKS = [
   { label: "Home",    path: "/" },
-  { label: "Menu",    path: "/menu" },
   { label: "About",   path: "/about" },
+  { label: "Menu",    path: "/menu" },
   { label: "Contact", path: "/contact" },
 ];

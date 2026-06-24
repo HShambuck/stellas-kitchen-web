@@ -1,5 +1,6 @@
 {
   "name": "stellas-kitchen-web",
+  "description": "Modern React frontend web application for Stella's Kitchen restaurant based in Shai Hills, built with Tailwind v4 and Material UI.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
