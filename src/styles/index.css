@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  /* Stella's Kitchen Core Palette */
+  --color-brand-red: #E53E3E;
+  --color-brand-brown: #6F4E37;
+  --color-brand-white: #FFFFFF;
+  --color-brand-cream: #FDF8F3;
+
+  /* Claude Fallback Mappings (This fixes the white footer/text mismatches!) */
+  --color-red-500: #E53E3E;
+  --color-red-600: #C53030;
+  
+  --color-brown-500: #6F4E37;
+  --color-brown-600: #5A3E2B;
+  
+  /* Layout Colors */
+  --color-text-main: #4a4a4a;
+  --color-text-heading: #08060d;
+  --color-border: #e5e4e7;
+}
+
+/* ─── Global Base Layouts ────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-brand-white);
+  color: var(--color-text-main);
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Custom Component Utilities ────────────────────────────────────────── */
+@utility btn-primary {
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white font-semibold rounded-full shadow-lg hover:bg-red-700 active:scale-95 transition-all duration-200;
+}
+
+@utility btn-secondary {
+  @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-brand-brown text-brand-brown font-semibold rounded-full hover:bg-brand-brown hover:text-white active:scale-95 transition-all duration-200;
+}
+
+@utility btn-ghost {
+  @apply inline-flex items-center gap-2 px-4 py-2 text-gray-700 font-medium rounded-full hover:bg-gray-100 active:scale-95 transition-all duration-150;
+}
+
+@utility section-heading {
+  @apply text-3xl md:text-5xl font-bold text-gray-900 leading-tight;
+}
+
+@utility card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+}
+
+@utility nav-link {
+  @apply relative text-sm font-medium text-gray-700 hover:text-brand-red transition-colors duration-200;
+}
