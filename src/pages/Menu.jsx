@@ -57,18 +57,18 @@ function MenuCard({ item }) {
         <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-4">
           {item.description}
         </p>
-        <div className="flex items-center justify-between">
-          <span className="font-bold text-red-500 text-lg">
+        <div className="flex items-center justify-between mt-4">
+          <span className="font-bold text-red-500 text-lg flex-shrink-0">
             {formatCurrencyCompact(item.price)}
           </span>
+          
           <button
             onClick={handleAdd}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold
-                        transition-all duration-200 active:scale-90
-                        opacity-0 group-hover:opacity-100
+                        transition-all duration-200 active:scale-95 z-10 flex-shrink-0
                         ${added
-                          ? "bg-green-500 text-white"
-                          : "bg-red-500 hover:bg-red-600 text-white"
+                          ? "bg-green-500 text-white opacity-100"
+                          : "bg-red-500 hover:bg-red-600 text-white lg:opacity-0 lg:group-hover:opacity-100"
                         }`}
           >
             {added ? (
