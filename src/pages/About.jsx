@@ -17,19 +17,26 @@ export default function About() {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
-        <div
-          className="absolute inset-0 hero-parallax opacity-20"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=80')",
-          }}
+      <section className="pt-40 pb-24 relative overflow-hidden bg-brown-950">
+        {/* Background Image Layer */}
+        <img 
+          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80" 
+          alt="Stella's Kitchen Kitchen View"
+          className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
         />
-        <div className="absolute inset-0 bg-cream/90" />
+        {/* Dark overlay mask - Protects white text contrast and layout readability */}
+        <div className="absolute inset-0 bg-black/50 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brown-950 via-transparent to-black/40" />
+        
+        {/* Header Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="section-eyebrow">{ABOUT_HERO.eyebrow}</span>
-          <h1 className="section-heading mt-3 text-5xl md:text-6xl mb-6">{ABOUT_HERO.headline}</h1>
-          <div className="w-16 h-1 bg-red-500 rounded-full mx-auto" />
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-red bg-white/10 backdrop-blur-xs px-3 py-1 rounded-full">
+            {ABOUT_HERO.eyebrow}
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mt-4 mb-6">
+            {ABOUT_HERO.headline}
+          </h1>
+          <div className="w-16 h-1 bg-brand-red rounded-full mx-auto" />
         </div>
       </section>
 
