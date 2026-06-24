@@ -39,8 +39,9 @@ export default function Home() {
               "url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1800&q=80')",
           }}
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-hero-gradient" />
+        {/* LIGHTER OVERLAY MASKS FOR HERO ALIGNMENT */}
+        <div className="absolute inset-0 bg-black/55 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/30" />
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
