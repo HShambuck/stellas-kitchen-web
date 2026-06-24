@@ -42,16 +42,20 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-8 font-medium">
               {NAV_LINKS.map((link) => (
                 <NavLink
                   key={link.path}
                   to={link.path}
                   end={link.path === "/"}
-                  className={({ isActive }) =>
-                    `nav-link pb-1 ${isActive ? "active" : ""}
-                     ${scrolled ? "text-gray-700" : "text-white hover:text-red-300"}`
-                  }
+                  className={({ isActive }) => {
+                    const activeClass = isActive ? "text-red-500 font-semibold" : "";
+                    const defaultColor = scrolled 
+                      ? "text-gray-700 hover:text-red-500" 
+                      : "text-white hover:text-red-300";
+
+                    return `nav-link pb-1 transition-colors duration-200 ${isActive ? activeClass : defaultColor}`;
+                  }}
                 >
                   {link.label}
                 </NavLink>

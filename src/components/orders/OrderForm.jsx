@@ -43,8 +43,15 @@ export default function OrderForm() {
         customerName: form.customerName.trim(),
         phoneNumber: form.phoneNumber.trim(),
         deliveryAddress: form.deliveryAddress.trim(),
-        items: items.map(({ id, name, price, quantity }) => ({ id, name, price, quantity })),
-        totalPrice,
+        // Mapping 'name' to 'foodItemName' so MongoDB doesn't throw a validation error
+        items: items.map(({ id, name, price, quantity }) => ({ 
+          id, 
+          foodItemName: name, 
+          price, 
+          quantity 
+        })),
+        // Changing 'totalPrice' key to 'totalAmount' for the backend payload
+        totalAmount: totalPrice, 
       });
 
       clearCart();
