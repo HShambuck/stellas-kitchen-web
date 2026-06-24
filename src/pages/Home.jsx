@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* ── Popular Items Showcase ────────────────────────────────────────── */}
-      <section className="py-24 bg-cream">
+      <section className="py-24 bg-brand-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
             <span className="section-eyebrow">Customer Favourites</span>

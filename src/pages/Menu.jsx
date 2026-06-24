@@ -101,31 +101,46 @@ export default function Menu() {
         />
       </Helmet>
 
-      {/* Page header */}
-      <div className="pt-32 pb-12 bg-cream border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="section-eyebrow">Shai Hills, Ghana</span>
-          <h1 className="section-heading mt-2 mb-4">Our Menu</h1>
-          <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-            Crafted fresh every day. From West African classics to global comfort food —
+      {/* Page header - Image background with dark overlay for maximum contrast */}
+      <div className="pt-40 pb-20 relative overflow-hidden bg-brown-950">
+        {/* Background Image Layer */}
+        <img 
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" 
+          alt="Stella's Kitchen Banner"
+          className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
+        />
+        {/* Dark overlay mask - This protects your white text and navbar links */}
+        <div className="absolute inset-0 bg-black/75 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brown-950 via-transparent to-black/40" />
+        
+        {/* Header Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-red bg-white/10 backdrop-blur-xs px-3 py-1 rounded-full">
+            Shai Hills, Ghana
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mt-4 mb-4">
+            Our Menu
+          </h1>
+          <p className="text-brown-100/80 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+            Crafted fresh every day. From West African classics to global comfort food — 
             there's something for everyone at Stella's.
           </p>
         </div>
       </div>
 
-      {/* Category filter */}
-      <div className="sticky top-16 md:top-20 z-30 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+      {/* Category filter - Blur background sitting softly over your layout */}
+      <div className="sticky top-16 md:top-20 z-30 bg-brand-cream/80 backdrop-blur-md border-b border-brown-100/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-2 overflow-x-auto py-4 scrollbar-hide no-scrollbar">
             {MENU_CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold
-                             transition-all duration-200 whitespace-nowrap
+                className={`flex-shrink-0 px-5 py-2.5 rounded-full text-xs font-bold
+                             transition-all duration-200 whitespace-nowrap shadow-xs
                              ${activeCategory === cat
-                               ? "bg-red-500 text-white shadow-md"
-                               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                               ? "bg-brand-red text-white shadow-md shadow-brand-red/20"
+                               : "bg-white text-gray-600 hover:bg-brown-50 border border-brown-100/50"
                              }`}
               >
                 {cat}
@@ -135,8 +150,8 @@ export default function Menu() {
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="py-16 bg-cream min-h-screen">
+      {/* Grid Canvas - Using the new rich brown-50 background so your white cards pop */}
+      <div className="py-16 bg-brown-50 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filtered.length === 0 ? (
             <div className="text-center py-20 text-gray-400">

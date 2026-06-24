@@ -87,7 +87,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-cream text-center">
+      <section className="py-20 bg-brand-cream text-center">
         <ScrollReveal>
           <h2 className="section-heading mb-4">Come eat with us.</h2>
           <p className="text-gray-500 mb-8 max-w-md mx-auto text-sm">
