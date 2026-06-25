@@ -36,7 +36,8 @@ api.interceptors.response.use(
  * Falls back to local MENU_ITEMS constant if backend is unavailable.
  */
 export async function fetchMenuItems() {
-  const res = await api.get("/api/menu");
+  // REMOVED /api from the start of the route string
+  const res = await api.get("/menu"); 
   return res.data;
 }
 
@@ -52,7 +53,8 @@ export async function fetchMenuItems() {
  * @param {number} orderPayload.totalPrice
  */
 export async function submitWebOrder(orderPayload) {
-  const res = await api.post("/api/orders/web/link", orderPayload);
+  // REMOVED /api from the start of the route string
+  const res = await api.post("/orders/web/link", orderPayload);
   return res.data;
 }
 
