@@ -56,7 +56,7 @@ export default function OrderForm() {
 
       clearCart();
       navigate("/order-confirm", {
-        state: { customerName: form.customerName.trim(), totalPrice, orderId: order.id },
+        state: { customerName: form.customerName.trim(), totalPrice, orderId: order._id },
       });
     } catch (err) {
       setError(
