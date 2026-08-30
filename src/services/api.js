@@ -58,4 +58,13 @@ export async function submitWebOrder(orderPayload) {
   return res.data;
 }
 
+/**
+ * Fetch live status/details for a single order — public, no auth.
+ * Endpoint: GET /api/orders/track/:id
+ */
+export async function trackOrder(orderId) {
+  const res = await api.get(`/orders/track/${orderId}`);
+  return res.data;
+}
+
 export default api;

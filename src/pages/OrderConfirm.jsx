@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import HomeIcon from "@mui/icons-material/Home";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import { BRAND } from "../constants/branding";
 import { CONTACT } from "../constants/contact";
 import { formatCurrencyCompact } from "../utils/currency";
@@ -12,6 +13,7 @@ export default function OrderConfirm() {
   const { state } = useLocation();
   const customerName = state?.customerName || "Friend";
   const totalPrice   = state?.totalPrice   || 0;
+  const orderId      = state?.orderId;
 
   // Scroll to top on mount
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -43,6 +45,17 @@ export default function OrderConfirm() {
             <span className="font-bold text-gray-800">{formatCurrencyCompact(totalPrice)}</span>.
             We'll get it ready and on the way to you soon.
           </p>
+
+          {orderId && (
+            <Link
+              to={`/track/${orderId}`}
+              className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-red-500
+                         hover:bg-red-600 text-white font-semibold rounded-full
+                         transition-colors duration-200 text-sm mb-6"
+            >
+              <LocalShippingIcon fontSize="small" /> Track Your Order
+            </Link>
+          )}
 
           {/* Divider */}
           <div className="border-t border-gray-100 my-6" />

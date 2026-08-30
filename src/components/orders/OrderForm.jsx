@@ -39,7 +39,7 @@ export default function OrderForm() {
 
     setLoading(true);
     try {
-      await submitWebOrder({
+      const order = await submitWebOrder({
         customerName: form.customerName.trim(),
         phoneNumber: form.phoneNumber.trim(),
         deliveryAddress: form.deliveryAddress.trim(),
@@ -56,7 +56,7 @@ export default function OrderForm() {
 
       clearCart();
       navigate("/order-confirm", {
-        state: { customerName: form.customerName.trim(), totalPrice },
+        state: { customerName: form.customerName.trim(), totalPrice, orderId: order.id },
       });
     } catch (err) {
       setError(
